@@ -1,0 +1,33 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>5秒后跳转到另一个页面</title>
+</head>
+<script>
+    var t = 5;
+    var s = '.';
+    timeID = setInterval("countDown()", 1000);
+
+    function countDown() {
+        time.innerHTML = t + "秒后跳转" + s;
+        t--;
+        s += '.';
+        if (t == 0) {
+            location.href = "http://localhost:8080/about.jsp"; //【要跳转的网站】
+            clearInterval(timeID);
+        }
+    }
+</script>
+
+<body>
+<script type='text/javascript' src='https://ykf-webchat.7moor.com/javascripts/7moorInit.js?accessId=a8f55d20-cf05-11ea-8529-298acfcf52e1&autoShow=true&language=ZHCN' async='async'>
+</script>
+    <div>
+        <font ID="time" face="impact" color="#272822" size="7">提交成功，即将跳转！！</font>
+    </div>
+</body>
+
+</html>

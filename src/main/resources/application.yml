@@ -1,0 +1,27 @@
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mappers/*.xml
+  type-aliases-package: com.letsgo.pojo
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://123.56.232.183:3306/letsgo?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    date-format: yyyy-MM-dd
+  redis:
+    host: 123.56.232.183
+    port: 6379
+    database: 0
+    password: 123456
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    cache: false
+    prefix: classpath:/templates/
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

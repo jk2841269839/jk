@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.letsgo.mapper.AddressMapper">
+    <!-- 结果集 -->
+    <resultMap id="addressMap" type="address">
+        <id property="id" column="address_id"/>
+        <result property="uuid" column="user_uuid"/>
+        <result property="name" column="address_name"/>
+        <result property="address" column="address_address"/>
+        <result property="mobile" column="address_mobile"/>
+        <result property="postcode" column="address_postcode"/>
+    </resultMap>
+    <!-- 购物车功能-添加一条收货地址 -->
+    <insert id="insertAddress" parameterType="Address">
+        insert into `address` (`user_uuid`,`address_id`,`address_name`,`address_address`,`address_mobile`,`address_postcode`) values (#{uuid},#{id},#{name},#{address},#{mobile},#{postcode})
+    </insert>
+    <!-- 购物车功能-通过用户编号查询购物车 -->
+    <select id="selectAllAddress" parameterType="java.lang.String" resultMap="addressMap">
+        SELECT `address_id`,`address_name`,`address_address`,`address_mobile`,`address_postcode`
+        FROM `address` WHERE 1
+        AND user_uuid = #{uuid}
+    </select>
+    <update id="updateAddress" parameterType="Address">
+        UPDATE `address` set `address_name`=#{name},`address_mobile`=#{mobile},`address_postcode`=#{postcode},`address_address`=#{address}
+        WHERE address_id=#{id}
+    </update>
+
+    <delete id="deleteAddress" parameterType="java.lang.String">
+        DELETE FROM `address` WHERE `address_id`=#{id}
+    </delete>
+
+
+
+</mapper>

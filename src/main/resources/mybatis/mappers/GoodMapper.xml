@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.letsgo.mapper.GoodMapper">
+    <resultMap id="goodMap" type="com.letsgo.bean.entity.Good">
+        <id property="goodId" column="good_id"/>
+        <result property="goodName" column="good_name"/>
+        <result property="goodPrice" column="good_price"/>
+        <result property="goodImg0" column="good_img0"/>
+        <result property="goodImg1" column="good_img1"/>
+        <result property="goodImg2" column="good_img2"/>
+        <result property="goodImg3" column="good_img3"/>
+        <result property="goodImg4" column="good_img4"/>
+        <result property="goodDetail1" column="good_detail1"/>
+        <result property="specId" column="spec_id"/>
+        <result property="goodSubtitle" column="good_subtitle"/>
+        <result property="goodStatus" column="good_status"/>
+        <result property="goodStock" column="good_stock"/>
+        <result property="goodBrand" column="good_brand"/>
+    </resultMap>
+
+    <select id="selectHot" resultMap="goodMap" flushCache="true">
+        SELECT good_id,good_name,good_price,good_img0,good_img1
+        FROM `Goods` WHERE id >= (SELECT floor(RAND() * (SELECT MAX(id) FROM `Goods`)))
+		ORDER BY id LIMIT 1;
+    </select>
+
+    <!-- 通过商品编号查询商品所有信息 -->
+    <select id="selectGoodDetail" parameterType="java.lang.Integer" resultMap="goodMap">
+        select good_id,good_name,good_price,good_img0,good_img1,good_img2,good_img3,good_img4,spec_id,good_detail1,good_status,good_subtitle,good_stock,good_brand
+        from `Goods` where 1 and good_id=#{goodId};
+    </select>
+
+    <!-- 通过商品编号查询商分类 -->
+    <select id="selectSpecName" parameterType="java.lang.Integer" resultType="java.lang.String">
+        select spec_name from Goods_Spec where 1 and spec_id=#{specId}
+    </select>
+
+    <!-- 通过分类编号查询所有该类商品 -->
+    <select id="selectGoods" parameterType="Good" resultMap="goodMap">
+        select good_id,good_name,good_price,good_img0,good_img1,spec_id from `Goods` where 1 and spec_id = #{specId};
+    </select>
+
+    <select id="selectGood" parameterType="java.lang.Integer" resultMap="goodMap">
+        SELECT * FROM `Goods` WHERE good_id=#{goodId}
+    </select>
+
+    <!-- 更新销量 -->
+    <update id="updateSale">
+        UPDATE `Goods` SET good_sales = good_sales + #{count}
+        WHERE good_id = #{goodId}
+    </update>
+
+    <select id="selectSomeGood" parameterType="string" resultMap="goodMap">
+        SELECT * FROM `Goods` WHERE good_name LIKE CONCAT('%',#{goodName},'%')
+    </select>
+</mapper>

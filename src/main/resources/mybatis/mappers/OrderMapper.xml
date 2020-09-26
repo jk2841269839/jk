@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	mapper		映射配置
+	namespace	命名空间	对应接口的名字
+ -->
+<mapper namespace="com.letsgo.mapper.OrderMapper">
+    <!-- id=代表结果集映射的名称 type=映射的pojo类类型 -->
+    <resultMap id="orderMap" type="order">
+        <!-- id=代表主键映射 property=javaBean中的属性名称 column=数据库中的字段名称 -->
+        <id property="id" column="order_id"/>
+        <!-- 非主键映射 property=javaBean中的属性名称 column=数据库中的字段名称 -->
+        <result property="uuid" column="order_uuid"/>
+        <result property="creationtime" column="order_creationtime"/>
+        <result property="status" column="order_status"/>
+        <result property="commodityprice" column="order_commodityprice"/>
+        <result property="transactionnumber" column="order_transactionnumber"/>
+        <result property="name" column="order_name"/>
+        <result property="addId" column="address_id"/>
+        <result property="goodId" column="good_id"/>
+        <result property="count" column="order_count"/>
+    </resultMap>
+
+    <select resultMap="orderMap" id="selectAllOrder" >
+        SELECT `order_id`,`order_transactionnumber`,`order_creationtime`,`order_status`,`order_commodityprice`
+        FROM `order`
+        WHERE 1 AND `order_uuid`=#{uuid}
+    </select>
+
+    <!-- 添加订单信息-->
+    <insert id="insertOrder" parameterType="order">
+        insert into `order` (`order_id`,`order_uuid`,`order_name`,`order_creationtime`,`order_status`,`order_commodityprice`,`order_count`) values (#{id},#{uuid},#{name},#{creationtime},#{status},#{commodityprice},#{count})
+    </insert>
+
+    <!--查询所有等于44的订单状态-->
+    <select id="queryOrderStatus" parameterType="java.lang.String" resultMap="orderMap" >
+     select * from `order` where 1 and order_status = 44
+    </select>
+
+    <!-- 更改订单状状态为33 -->
+    <update id="update2refund" parameterType="java.lang.String">
+        UPDATE `order` SET order_status = 33 WHERE order_id = #{id}
+    </update>
+
+    <!--
+    退款成功后更改订单状态
+    -->
+    <update id="update4refund" parameterType="java.lang.String">
+        UPDATE `order` SET order_status = 55 WHERE order_id = #{id}
+    </update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

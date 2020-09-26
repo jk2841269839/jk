@@ -1,0 +1,476 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: kgc
+  Date: 2020/7/13
+  Time: 下午11:24
+  To change this template use File | Settings | File Templates.
+--%>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简历创建</title>
+    <link rel="stylesheet" type="text/css" href="//c.58cdn.com.cn/git/zp-resume/pc-resume-post/css/app_v20200521175900.css">
+</head>
+<body>
+<script type='text/javascript' src='https://ykf-webchat.7moor.com/javascripts/7moorInit.js?accessId=a8f55d20-cf05-11ea-8529-298acfcf52e1&autoShow=true&language=ZHCN' async='async'>
+</script>
+<input type="hidden" id="cptrKey" value=""/>
+<input type="hidden" id="captchaLevel" value="400"/>
+<input type="hidden" id="postResumeToken" value="">
+<input type="hidden" id="isValidateMobile" value=""/>
+<input type="hidden" id="isLogin" value="false"/>
+<input type="hidden" id="fromType" value=""/>
+<input type="hidden" id="postfrom" value=""/>
+<!-- 附件简历url -->
+<input type="hidden" id="accessoryUrl" value=""/>
+<div class="header">
+    <a class="logoImg" id="" href="default.jsp">
+        <img alt="中文最大商城信息门户" src="assets/images/img-17.png" width="180px" height="60px">
+    </a>
+    <h2 class="title">您正在创建简历...</h2>
+    <p class="userInfo">
+        <span class="pr8"><a target="_self" href="about.jsp"></a></span>
+        <a href="default.jsp" target="_self">退出</a>
+    </p>
+</div>
+<div class="main">
+    <form name="" enctype="multipart/form-key">
+        <div class="job">
+            <div class="job-title clear">
+                <i class="icon-job icon"></i>
+                <span class="title-font">求职信息</span>
+                <hr class="line"/>
+            </div>
+            <div class="com-content">
+                <ul class="com-list">
+                    <li class="work cate-list">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">职位类别</span>
+                        <div class="com-select clear" id="job">
+                            <div class="com-select-left">
+
+                            </div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <input type="hidden" class="key" id="txtJobCateIds" name="disCateIds" value="" data-txt="" cid="" pid="">
+                    </li>
+                    <li class="address cate-list" id="address">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">工作地点</span>
+                        <div class="com-select m10 first clear" id="workCity">
+                            <div class="com-select-left w106" id="address-first-text" data-id="1">北京</div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <div class="com-select m10 second clear" id="workDistrict">
+                            <div class="com-select-left w106" id="address-second-text" data-id=""></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <div class="com-select m10 third clear" id="workArea">
+                            <div class="com-select-left w106" id="address-third-text" data-id=""></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <input type="hidden" class="key" id="txtAddress" name="address" value="1">
+                    </li>
+                    <li class="salary cate-list">
+                        <span class="com-title">期望薪资</span>
+                        <div class="com-select selects clear">
+                            <div class="com-select-left values w205"></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                            <div class="select-list">
+                                <ul>
+                                    <li><a href="javascript:void(0);" class="select-option" value='0'>面议</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='1'>1000元以下</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='2'>1000-2000元</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='3'>2000-3000元</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='4'>3000-5000元</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='5'>5000-8000元</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='6'>8000-12000元</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='7'>12000-20000元</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='8'>20000-25000元</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='9'>25000元以上</a></li>
+                                </ul>
+                            </div>
+                            <input type="hidden" class="key" id="txtSalary" name="salary">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="base">
+            <div class="base-title clear">
+                <i class="icon-base icon"></i>
+                <span class="title-font">基本信息</span>
+                <hr class="line"/>
+            </div>
+            <div class="com-content">
+                <ul class="com-list">
+                    <li class="resumePic cate-list">
+                        <div class="uploadImg_imgresultout clearfix">
+                            <span class="fl resumePicTitle">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像</span>
+                            <div class="fl uploadImg_imgresultwrap">
+                                <div class="uploadImg_imgresultwrapzhao"></div>
+                                <img src="" id="uploadImg_imgresult" class="uploadImg_imgresult" value="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="name cate-list">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                        <input type="text" class="com-input" id="txtUserName" name="truename"  value="">
+                        <div class="sex">
+                            <div class="sex-input selected" id="man" value="0">
+                                <i class="man-icon icon"></i>男
+                            </div>
+                            <div class="sex-input" id="woman" value="1">
+                                <i class="woman-icon icon"></i>女
+                            </div>
+                            <input type="hidden" class="key" id="txtSex" name="sex" value="0">
+                        </div>
+                    </li>
+                    <li class="birthday cate-list">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">出生年份</span>
+                        <div class="com-select selects clear">
+                            <div class="com-select-left values w205"></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                            <div class="select-list" id="yearList">
+                                <ul>
+                                </ul>
+                            </div>
+                            <input type="hidden" class="key" id="txtBirYear" name="year" value=''>
+                        </div>
+                    </li>
+                    <li class="workTime cate-list">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">工作年限</span>
+                        <div class="com-select selects clear">
+                            <div class="com-select-left  values w205"></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                            <div class="select-list">
+                                <ul>
+                                    <li><a href="javascript:void(0);" class="select-option" value='0' value=''>无经验</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='5'>应届生</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='6'>1年以下</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='1'>1-3年</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='2'>3-5年</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='3'>5-10年</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='4'>10年以上</a></li>
+                                </ul>
+                            </div>
+                            <input type="hidden" class="key" name="workyears" id="txtWorkYears" value="">
+                        </div>
+                    </li>
+                    <li class="education cate-list">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">最高学历</span>
+                        <div class="com-select selects clear">
+                            <div class="com-select-left values w205"></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                            <div class="select-list">
+                                <ul>
+                                    <li><a href="javascript:void(0);" class="select-option" value='1'>高中以下</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='2'>高中</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='3'>中专/技校</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='4'>大专</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='5'>本科</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='6'>硕士</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='7'>博士</a></li>
+                                    <li><a href="javascript:void(0);" class="select-option" value='8'>MBA/EMBA</a></li>
+                                </ul>
+
+                            </div>
+                            <input type="hidden" class="key" name="education" id="txtEducation" value="">
+                        </div>
+                    </li>
+
+                    <input type="hidden" id="hideMoblie" value="">
+                    <li id="notAuthTel" class="tel cate-list" >
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">邮箱号码</span>
+                        <input type="text" class="com-input" maxlength="" name="mailNum" id="mailNum" value="">
+
+                    </li>
+                    <li class="imgCode cate-list" style="display:none">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">图片验证</span>
+                        <div class="img-box">
+                            <input type="text" class="com-input fl" maxlength="5" name="imgCode" id="imgCode">
+                            <img id="yzm_img" src="//passport.58.com/validatecode?temp=123ifhvgzul" class="yzm_img">
+                            <a href="javascript:void(0)" class="fl" id="refImg">看不清楚？</a>
+                        </div>
+                        <input type="button" class="tel-buttom" id="sendCode" value="获取验证码">
+                    </li>
+                    <li class="authcode cate-list" style="display:none">
+                        <b class="must-Symbol">*</b>
+                        <span class="com-title">验证码</span>
+                        <input type="text" class="com-input" maxlength="6" name="code" id="txtCode">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 添加附件简历 -->
+        <div class="base" id="fileUpload">
+            <div class="base-title clear">
+                <i class="icon-file icon"></i>
+                <span class="title-font">附件简历</span>
+                <hr class="line" />
+            </div>
+            <div class="com-content">
+                <!-- 文件信息区域 -->
+                <div class="file-info">
+                    <!-- 拖拽区域 -->
+                    <div class="drop-area">
+                        <span class="drop-name">拖拽文件到这里</span>
+                        <span>DOC、DOCX、PDF、JPG、PNG格式</span>
+                        <span>文件大小不超过4M</span>
+                    </div>
+                    <!-- 展示区域 -->
+                    <div class="file-preview">
+                        <!-- 上传 loading -->
+                        <div class="file-loading">
+                            <span class="loading-icon"></span>
+                            <span>正在上传</span>
+                        </div>
+                        <!-- 上传完成 -->
+                        <p id="fileName" class="file-text"></p >
+                    </div>
+                </div>
+                <!-- 操作按钮 -->
+                <div class="upload-btn ctrl-btn btn-active">
+                    <span>上传</span>
+                    <input id="btnFile" type="file" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,image/jpeg,image/png">
+                </div>
+                <div class="preview-btn">
+                    <span class="ctrl-btn delete-btn">删除</span>
+                </div>
+            </div>
+        </div>
+        <div class="other">
+            <div class="other-title clear">
+                <i class="icon-other icon"></i>
+                <span class="title-font">加分信息</span>
+                <i class="icon-cirArr icon" id="other-sel"></i>
+                <hr class="line"/>
+            </div>
+            <div class="com-content">
+                <ul class="com-list">
+                    <li class="nativePlace cate-list" id="native">
+                        <span class="com-title">籍 贯</span>
+                        <div class="com-select m10 first clear" id="nativeProvince">
+                            <div class="com-select-left w194" id="native-first-text" data-id=""></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <div class="com-select m10 second clear" id="nativeCity">
+                            <div class="com-select-left w194" id="native-second-text" data-id=""></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <input type="hidden" class="key" id="txtNative" value="">
+                    </li>
+                    <li class="home cate-list" id="home">
+                        <span class="com-title">现居住地</span>
+                        <div class="com-select m10 first clear" id="homeCity">
+                            <div class="com-select-left w106" id="home-first-text" data-id="1">北京</div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <div class="com-select m10 second clear" id="homeDistrict">
+                            <div class="com-select-left w106" id="home-second-text" data-id=""></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <div class="com-select m10 third clear" id="homeArea">
+                            <div class="com-select-left w106" id="home-third-text" data-id=""></div>
+                            <div class="com-select-right">
+                                <i class="arr-icon icon"></i>
+                            </div>
+                        </div>
+                        <input type="hidden" class="key" id="txtUserCity" value="1">
+                    </li>
+                    <li class="self cate-list">
+                        <span class="com-title">自我介绍</span>
+                        <div class="self-wrap">
+							<textarea class="self-content" id="txtIntrodSelf" maxlength="500">
+                                                            </textarea>
+                            <p class="hint-tips">还可以输入<span class="orange-font" id="totalNum">500</span>个字</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="privacy-settings">
+            <div class="privacy-title clear">
+                <i class="icon-privacy icon"></i>
+                <span class="title-font">隐私设置</span>
+                <hr class="line" />
+            </div>
+            <div class="com-content">
+                <ul class="com-list">
+                    <li class="privacy-list">
+                        <b class="must-Symbol">*</b>
+                        <span class="privacy-item-title">谁能看到这份简历</span>
+                        <div class="radio-group" id="privacySelect">
+                            <div class="radio-item">
+                                <div class="radio-icon" data-id='1'><span></span></div>
+                                <span class="">所有招聘方</span>
+                                <span class="privacy-tip">展示简历给通过营业执照或法人等认证的招聘方</span>
+                            </div>
+                            <div class="radio-item">
+                                <div class="radio-icon" data-id='0'><span></span></div>
+                                <span class="">仅我投递的招聘方</span>
+                                <span class="privacy-tip">不会在人才库显示您的简历，不会被非投递的招聘方主动邀约</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="privacy-list marginTop20" id="exceptIndustry">
+                        <span class="privacy-item-title">不想从事的行业</span>
+                        <div class="radio-group" id="blockIndustryGroup">
+                            <div class="radio-item">
+                                <span class="radio-icon"><span></span></span>
+                                <span class="">无，所有行业都能看到我的简历</span>
+                            </div>
+                            <div class="radio-item" id="blockIndustryDiv">
+                                <span class="radio-icon"><span></span></span>
+                                <span class="">我不想让以下行业招聘方看到我的简历</span>
+                                <div class="privacy-select clear" id='blockIndustry'>
+                                    <div class="com-select-left">
+                                        <span class="placeholder">请选择行业名称</span>
+                                    </div>
+                                    <div class="com-select-right">
+                                        <i class="arr-icon icon"></i>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="blockIndustryIds" value="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="cvip-guide com-content">
+            <div class="cvip-guide-box">
+                <div class="cvip-choose">
+                    <span class="cvip-checkbox"></span>
+                    <span class="cvip-btn">申请“求职神器”</span>
+                </div>
+                <div class="cvip-sub">
+                    <span>求职会员享特权，面试无忧有保障，无面试邀请，来此购包赔！</span>
+                </div>
+            </div>
+        </div>
+        <div class="save">
+            <input type="button" align="right"class="save-resume" value="保存简历"  id="submit">
+        </div>
+        <div id="ISDCaptcha"></div>
+    </form>
+</div>
+<!-- for fe start -->
+<!-- 0. EMS异常监控 -->
+<script type="text/javascript" src="//j1.58cdn.com.cn/ems/monitor/1.0/js/EMS_v20190904203306.js">
+</script>
+<script type="text/javascript">
+    EMS.install({
+        id: 3
+    });
+</script>
+<script type="text/javascript" src="//j1.58cdn.com.cn/global/js/lib/wos-js-sdk-v2_v20180712102944.js"></script>
+<script type="text/javascript">
+    var alldispcategory = {};
+</script>
+<script type="text/javascript">
+    try{
+        var site_name = "58";
+        var page_type = "post";
+        var trackpw = "/bj/searchjob//user/fillout_1/add";
+
+
+
+        var _trackURL = "{'cate':'','area':'1','pagetype':'post','page':'pc-quanzhifabu-zhanxian-nologin','postmode':'add','usertype':'user','GA_pageview':'"+trackpw+"'}";
+
+
+    }catch(err){}
+</script>
+<script type="text/javascript">
+    var ____json4fe = {};
+    ____json4fe.csrfToken = "83VkmKJAshkrKJwCN7kDFaS0thbv-MBD96sOsImdXef2Iz1a_kSrq0eMUzGy9TwcgU9NIg9TDOplfKSI5zGqew";
+    var pic58 = ""; //相册路径
+</script>
+<!-- 1. 基础库 -->
+<script type="text/javascript"
+        src="assets/js/user/jichu.js"></script>
+<!-- 2. EMS异常捕获插件 -->
+<script type="text/javascript" src="assets/js/user/ems.js">
+</script>
+<script type="text/javascript"
+        src="assets/js/user/ems1.js"></script>
+<!-- 3. 图片上传组件 -->
+<script type="text/javascript"
+        src="assets/js/user/photo.js"></script>
+<!-- 4. bundle文件 -->
+<script type="text/javascript"
+        src="assets/js/user/bundle.js"></script>
+<!-- 6. 埋点js -->
+<script type="text/javascript"
+        src="assets/js/user/Mai.js"></script>
+<!-- 7. WMDA统计代码 -->
+<script type="text/javascript">
+    window.WMDA_SDK_CONFIG = ({
+        api_v: 1,
+        sdk_v: 0.1,
+        mode: 'report',
+        appid: 1731933293441,
+        key: 'fzrn8ynn',
+        project_id: '1731916484865'
+    });
+</script>
+<script type="text/javascript"
+        src="assets/js/user/WMDA.js"></script>
+<!-- 7. EMS统计代码 -->
+<script type="text/javascript">
+    var EMS_SDK_CONFIG = {
+        id: 3
+    };
+    (function () {
+        var ems = document.createElement("script");
+        ems.src = "//j1.58cdn.com.cn/ems/performance/1.0/js/bundle.performance.js?" +
+            (+new Date());
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ems, s);
+    })();
+
+</script>
+<!-- 8. 滑块验证码 -->
+<script type="text/javascript" src="assets/js/user/Huakuai.js"></script>
+<script>
+    $("#submit").click(function () {
+        var mailNum = $("#mailNum").val();
+        window.location.href = "/jumpPage.action?methodName=jump&mailNum="+mailNum;
+    });
+</script>

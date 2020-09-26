@@ -1,0 +1,288 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>Allup - Electronics Responsive eCommerce HTML Template.</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+
+
+    <!-- CSS
+	============================================ -->
+
+    <!--===== Vendor CSS (Bootstrap & Icon Font) =====-->
+
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
+
+    <!--===== Plugins CSS (All Plugins Files) =====-->
+
+    <link rel="stylesheet" href="assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/default.css">
+
+    <!--====== Main Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+    <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css"> -->
+
+</head>
+
+<body>
+<script type='text/javascript' src='https://ykf-webchat.7moor.com/javascripts/7moorInit.js?accessId=a8f55d20-cf05-11ea-8529-298acfcf52e1&autoShow=true&language=ZHCN' async='async'>
+</script>
+<!--====== PRELOADER PART START ======-->
+
+<div id="preloader">
+    <div class="preloader">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<!--====== PRELOADER PART ENDS ======-->
+
+
+<!--====== Header Part Start ======-->
+
+
+
+<!--====== Header Part Ends ======-->
+<jsp:include page="header.jsp"/>
+
+<!--====== Breadcrumb Part Start ======-->
+
+<div class="breadcrumb-area">
+    <div class="container-fluid custom-container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.jsp">主页</a></li>
+                <li class="breadcrumb-item active">联系我们</li>
+            </ol>
+        </nav>
+    </div> <!-- container -->
+</div>
+
+<!--====== Contact PART ENDS ======-->
+
+<!--====== Contact Part Start ======-->
+
+<section class="contact-page pt-20">
+    <div class="container-fluid custom-container">
+        <div class="row">
+            <div class="col-lg-7 col-xl-8">
+                <div class="contact-form mt-30">
+                    <h4 class="allup-title">留言地址</h4>
+                    <form class="layui-form" action="">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="single-form">
+                                    <input id="name" type="text" lay-verify="name" placeholder="你的名字">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single-form">
+                                    <input id="email" type="email" lay-verify="required|email" name="email"
+                                           required="required" placeholder="你的邮箱">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="single-form">
+                                    <input id="subject" type="text" lay-verify="subject" name="subject"
+                                           placeholder="主题">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="single-form">
+                                    <textarea id="content" title="留言内容" name="content" lay-verify="content"
+                                              lay-reqtext="请输入内容" placeholder="留言内容"></textarea>
+                                </div>
+                            </div>
+                            <p class="form-message"></p>
+                            <div class="col-md-12">
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <button type="submit" id="submit" class="main-btn" lay-submit=""
+                                                lay-filter="demo1">提交留言
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-4">
+                <div class="contact-info mt-30">
+                    <h4 class="title"> 联系我们 </h4>
+                    <p class="text">如果您在使用内容协作平台过程中有任何问题，可以通过以下方式联系我们.</p>
+
+                    <ul class="contact-info-block">
+                        <li>
+                            <div class="single-info">
+                                <div class="info-icon-title d-flex align-item-center">
+                                    <div class="info-icon">
+                                        <i class="icon ion-map"></i>
+                                    </div>
+                                    <h5 class="info-title media-body">地址</h5>
+                                </div>
+                                <p>北京来此购商城有限公司：
+                                北京-大兴区-旧宫</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="single-info">
+                                <div class="info-icon-title d-flex align-item-center">
+                                    <div class="info-icon">
+                                        <i class="icon ion-ios-telephone-outline"></i>
+                                    </div>
+                                    <h5 class="info-title media-body">电话</h5>
+                                </div>
+                                <p>手机: 13306303111</p>
+                                <p>热线（电话）: 7758521</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="single-info">
+                                <div class="info-icon-title d-flex align-item-center">
+                                    <div class="info-icon">
+                                        <i class="icon ion-ios-email-outline"></i>
+                                    </div>
+                                    <h5 class="info-title media-body">邮箱</h5>
+                                </div>
+                                <p>506023898@qq.com</p>
+                                <p>let‘s go@163.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== Contact Part Ends ======-->
+
+<!--====== Brand Part Start ======-->
+
+<jsp:include page="footer.jsp"/>
+
+<!--====== Brand Part Ends ======-->
+
+
+<!--====== Features Banner Part Ends ======-->
+
+
+
+<!--====== BACK TOP TOP PART ENDS ======-->
+
+
+<!--====== Vendors js ======-->
+<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+<!--====== Plugins js ======-->
+<script src="assets/js/plugins/popper.min.js"></script>
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+<script src="assets/js/plugins/slick.min.js"></script>
+<script src="assets/js/plugins/jquery.countdown.min.js"></script>
+<script src="assets/js/plugins/jquery-ui.min.js"></script>
+
+
+<!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+<!-- <script src="assets/js/plugins.min.js"></script> -->
+
+
+<!--====== Main Activation js ======-->
+<script src="assets/js/main.js"></script>
+
+<script src="layui/layui.js"></script>
+<!-- layui 建立并加载入口文件 -->
+<script>
+    layui.config({
+        base: 'assets/js/'
+    }).use('house');
+</script>
+
+
+</body>
+
+</html>
+<script src="/assets/js/plugins/jquery-ui.min.js" charset="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        var form = layui.form
+            , layer = layui.layer;
+
+        //自定义验证规则
+        form.verify({
+            name: function (name) {
+                if (name.length < 1) {
+                    return '姓名必填';
+                }
+            }
+            , email: [
+                /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,5})+$/, '请输入正确邮箱格式'
+            ], subject: function (subject) {
+                if (subject.length < 1) {
+                    return '标题必填';
+                }
+            }, content: function (content) {
+                if (content.length < 1) {
+                    return '内容必填';
+                }
+            },
+
+        });
+        
+        layui.$('#LAY-component-form-getval').on('click', function () {
+            var data = form.val('example');
+            alert(JSON.stringify(data));
+        });
+        form.on('submit(demo1)', function () {
+            // $("#submit").click(function () {
+            var name = $("#name").val(),
+                email = $("#email").val(),
+                subject = $("#subject").val(),
+                content = $("#content").val();
+            $.ajax({
+                type: "POST",
+                // 跳转后端 PersonHandler 中的 editPersonInfo
+                url: "${pageContext.request.contextPath}/message.action?methodName=insertMessage",
+                data: {
+                    // 将 input 中用户输入的数据传到后端
+                    name: name,
+                    subject: subject,
+                    email: email,
+                    content: content
+                },
+                cache: false,
+                // 数据传输类型
+                dataType: 'text',
+                // ajax 回调函数，使用 ajax 异步传输后，不可以在后端 servlet 李跳转页面，只能在回调函数中跳转
+                success: function (data) {
+                    alert("提交成功");
+                },
+                error: function (error) {
+                    alert("提交成功");
+                }
+            });
+        })
+    })
+
+</script>

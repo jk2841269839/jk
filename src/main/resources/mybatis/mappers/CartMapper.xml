@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	mapper		映射配置
+	namespace	命名空间	对应接口的名字
+ -->
+<mapper namespace="com.letsgo.mapper.CartMapper">
+    <!--     结果集 -->
+    <resultMap id="cartMap" type="cart">
+        <id property="cartId" column="cart_id"/>
+        <result property="userUuid" column="user_uuid"/>
+        <result property="goodId" column="good_id"/>
+        <result property="cartCount" column="cart_count"/>
+        <result property="cartChecked" column="cart_checked"/>
+        <result property="goodName" column="good_name"/>
+        <result property="goodPrice" column="good_price"/>
+        <result property="goodImg0" column="good_img0"/>
+    </resultMap>
+
+    <!-- 购物车功能-添加一条购物车 -->
+    <insert id="insertCart" parameterType="cart">
+        insert into `cart` (`cart_id`,`user_uuid`,`good_id`,`cart_count`) values (#{cartId},#{userUuid},#{goodId},#{cartCount})
+    </insert>
+
+    <!-- 购物车功能-通过用户编号查询购物车 -->
+    <select id="selectCarts" parameterType="java.lang.String" resultMap="cartMap">
+        SELECT cart.good_id,cart_id,cart_count,good_name,good_price,good_img0
+        FROM `cart`,`Goods` WHERE 1
+        AND user_uuid = #{uuid} AND cart.good_id = Goods.good_id
+    </select>
+
+    <delete id="deleteCart" parameterType="java.lang.String">
+        DELETE FROM `cart` where 1 AND cart_id = #{cartId}
+    </delete>
+
+    <select id="selectCart" parameterType="java.lang.String" resultMap="cartMap">
+        SELECT * FROM `cart` WHERE 1 AND cart_id=#{cartId}
+    </select>
+
+</mapper>

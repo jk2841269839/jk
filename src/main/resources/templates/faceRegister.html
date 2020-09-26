@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0}
+        html,body{width: 100%;height: 100%}
+        h1{text-align: center}
+        #media{width: 600px;height: 450px;background-color: yellowgreen;margin: 30px auto 0}
+        #canvas{display: none}
+        #shuru{width: 200px;height: 50px}
+    </style>
+
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+
+
+    <!-- CSS============================================ -->
+
+    <!--===== Vendor CSS (Bootstrap & Icon Font) =====-->
+
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
+
+    <!--===== Plugins CSS (All Plugins Files) =====-->
+
+    <link rel="stylesheet" href="assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/default.css">
+
+    <!--====== Main Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+<h1>人脸信息录入</h1>
+<!--用户信息-->
+<div style="text-align: center" class="single-form">
+    <strong type="text" class="col-lg-6">请输入您的手机号</strong>
+    <input class="col-lg-3" id="uname" type="text" name="uname" value="">
+    <button id="register" class="main-btn">确认注册</button>
+</div>
+
+<!--摄像头-->
+<div id="media">
+    <video id="video" width="600px" height="450px" src="" autoplay></video>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+</div>
+<!--提交-->
+
+<script type="text/javascript" th:src="@{~/assets/js/vendor/jquery-1.12.4.min.js}"></script>
+<script type="text/javascript">
+    var video = document.getElementById("video");
+    var userContext=canvas.getContext("2d");
+    var getUserMedia=(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia)
+    getUserMedia.call(navigator,{video:true,audio:false},function(localMediaStream) {
+        video.srcObject=localMediaStream;
+    },function(e){
+        alert("获取摄像头失败");
+    });
+    //点击按钮
+    var btn = document.getElementById("register");
+    btn.onclick=function(){
+        var username=$("#uname").val();
+        if (username != null){
+            alert(username);
+            userContext.drawImage(video,0,0,600,600);
+            var userImageSrc=document.getElementById("canvas").toDataURL("img/png");
+            var faceBase=userImageSrc.split(",")[1];
+           // window.location.href="/zhuce.action?methodName=zhuce";
+            //请求
+            $.ajax({
+                url:"/faceRegister",
+                type:"post",
+                data:{
+                    faceBase:faceBase,
+                    uname:username
+                },
+                success:function(result){
+                    if (result=="SUCCESS"){
+                        alert("注册成功");
+                        window.location.href="/";
+                    } else if(result=="2"){
+                        alert("你已经注册过了");
+                    }else{
+                        window.location.href="/";
+                        alert(result);
+                    }
+                }
+            })
+        } else {
+            alert("用户名不能为空");
+        }
+    }
+</script>
+</body>
+</html>
